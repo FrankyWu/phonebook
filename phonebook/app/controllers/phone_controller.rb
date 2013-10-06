@@ -13,4 +13,21 @@ class PhoneController < ApplicationController
 	redirect_to :action =>"index"
   end
 
+  def modify
+	@pbook = Pbook.find(params[:id])
+  end
+
+  def updateing
+	@pbook = Pbook.find(params[:id])
+	@pbook.update_attributes(params[:pbook])
+
+	redirect_to :action =>"index"
+  end
+
+  def del
+	@pbook = Pbook.find(params[:id])
+	@pbook.destroy
+
+	redirect_to :action =>"index"
+  end
 end
